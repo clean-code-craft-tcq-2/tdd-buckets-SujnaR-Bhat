@@ -1,6 +1,31 @@
 #include <stdio.h>
 #include <cstdlib>
+#include <math.h>
 #include "rangeChecker.h"
+int *ConvertedDigitalArray;
+
+// Convert Analog to Digital
+int* ConvertA2D(int *Readings, int NoOfSamples)
+{
+    ConvertedDigitalArray = (int*)calloc(NoOfSamples, sizeof(int));
+    for(int i=0;i<NoOfSamples;i++)
+    {
+         if (Readings[i] >4094)
+         {
+             Readings[i] = 0 ; //assume the invalid sample as 0
+         }    
+        ConvertedDigitalArray[i] = (10* Readings[i] )/ 4094;
+        ConvertedDigitalArray[i] = round(ConvertedDigitalArray[i]);
+    }
+    return ConvertedDigitalArray;
+}
+
+// Sorting the input samples
+int CompareInputs (const void * firstInput, const void * secondInput) 
+{
+    return ( *(int*)firstInput - *(int*)secondInput );
+}
+
 
 int *sort(int *array, int size)
 {
