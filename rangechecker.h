@@ -11,3 +11,5 @@ typedef struct ReadingRangeList {
 
 ReadingsRangeList GetListofReadingsRange(int *ArrayofReadings, int size);
 int *sort(int array, int size);
+
+int* ConvertA2D(int *Readings, int NoOfSamples);
