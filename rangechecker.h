@@ -5,9 +5,9 @@ typedef struct ReadingRange {
 } ReadingRange;
 
 typedef struct ReadingRangeList {
-    ReadingRange *readingRanges;
+    ReadingRange *ReadingsRanges ;
     int totalReadingRanges;
-} ReadingRangeList;
+} ReadingsRangeList ;
 
-ReadingRangeList getReadingRangeList(int *readingsArray, int size);
+ReadingsRangeList GetListofReadingsRange(int *ArrayofReadings, int size);
 int *sort(int array, int size);
