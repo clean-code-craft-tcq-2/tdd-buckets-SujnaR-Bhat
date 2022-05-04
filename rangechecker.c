@@ -18,3 +18,12 @@ int *sort(int *array, int size)
     }
     return array;
 }
+
+ReadingRangeList getReadingRangeList(int *ArrayofReadings, int size)
+{
+    int *sortedArray = sort(ArrayofReadings, size);
+    ReadingRange *readingRanges = (ReadingRange *)malloc(size * sizeof(ReadingRange));
+    int start = sortedArray[0], end = sortedArray[0], count = 0, rangeIndex = 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (sortedArray[i] == start || sortedArray[i] == end + 1)
